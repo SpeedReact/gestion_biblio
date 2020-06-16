@@ -1,0 +1,20 @@
+.cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin-left: 50px;
+}
+.cards .ant-card{
+    border-radius: 10px;
+    width: 300px ;
+    margin: 10px auto;
+}
+.ant-card-cover {
+    border-radius: 10px; 
+}
+.ant-card-cover img{
+    border-radius: 10px 10px 0 0 !important;
+    height: 150px;  
+}
