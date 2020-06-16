@@ -39,9 +39,10 @@ function UsersPage() {
 
   const updateUser = (id,etat) => {
     const newUsers = users.map(user =>
-        user.id === id ? { etat : Number(etat)} : user
+        user.id === id ? { ...user ,etat : Number(etat)} : user
     )
     setUsers(newUsers)
+    console.log(newUsers)
     console.log("update user")
   }
 

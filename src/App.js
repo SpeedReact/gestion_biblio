@@ -10,6 +10,7 @@ import {
 import AdminRoutes from "./components/adminRoutes/AdminRoutes"
 
 function App() {
+  
   return (
     <div className="app">
       <Router>

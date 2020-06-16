@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from "react"
-import { fetchUserById } from "../../services/users.service"
-import { useParams, useLocation, useRouteMatch } from "react-router-dom"
+import { fetchUserById  } from "../../services/users.service"
+import {  fetchEmpruntsById } from "../../services/emprunt.service"
+import { useParams } from "react-router-dom"
 import './UserDetails.css'
+import Emprunt from "../emprunt/Emprunt"
 
 
 function UserDetails() {
   const [loading, setLoading] = useState(false)
   const [user, setUser] = useState({})
+  const [emprunts, setEmprunts] = useState([])
  
  
   const { userId } = useParams()
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true)
-      const result = await fetchUserById(userId)
-      setUser(result)
+      const resultUser = await fetchUserById(Number(userId))
+      setUser(resultUser)
+      const resultEmprunt = await fetchEmpruntsById(Number(userId))
+      console.log(resultEmprunt)
+      setEmprunts(resultEmprunt)
       setLoading(false)
     }
     
@@ -28,19 +34,23 @@ function UserDetails() {
         <div>Loading ... </div>
       ) : (
         <>
-          <div className="title">Nom</div>
-          <div className="value">{user.nom}</div>
+          <div >Nom :  {user.nom}</div>
+          <div>  Prénom : {user.prénom}</div>
+          <div > nom utilisateur : {user.nomutilisateur}</div>
+          <div> mot de passe : {user.motdepasse}</div>
 
-          <div className="title">prénom</div>
-          <div className="value">{user.prénom}</div>
+            
+              emprunts : 
+              {emprunts.map(emprunt => (
+          
+                <div key={emprunt.id} >
+                  date emprunt : {emprunt.date_emprunt }
+                  , date retour : {emprunt.date_retour}
+                  , libéllé livre : {emprunt.book.libéllé}
+                </div>
 
-          <div className="title">nomutilisateur</div>
-          <div className="value">{user.nomutilisateur}</div>
-
-          <div className="title">mot de passe</div>
-          <div className="value">{user.motdepasse}</div>
-
-
+        ))}
+            
         </>
       )}
     </div>

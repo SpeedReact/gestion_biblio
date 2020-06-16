@@ -4,44 +4,43 @@ import { useParams, useLocation, useRouteMatch } from "react-router-dom"
 import './BookDetails.css'
 
 
-function BookDetails() {
+function BookDetails({id}) {
   const [loading, setLoading] = useState(false)
   const [book, setBook] = useState({})
  
+ console.log(id)
  
-  const { bookId } = useParams()
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true)
-      const result = await fetchBookById(bookId)
+      const result = await fetchBookById(Number(id))
       setBook(result)
       setLoading(false)
     }
     
     fetchData()
-  }, [bookId])
+  }, [id])
 
   return (
-    <div className="task-details">
-      <div className="header">Book details</div>  
+    <div>
       {loading ? (
         <div>Loading ... </div>
       ) : (
         <>
-          <div className="title">Libéllé</div>
-          <div className="value">{book.libéllé}</div>
+    
+          <div className="value">Libéllé : {book.libéllé}</div>
 
-          <div className="title">auteur</div>
-          <div className="value">{book.auteur}</div>
+          <div className="value"> auteur : {book.auteur}</div>
 
-          <div className="title">edition</div>
-          <div className="value">{book.edition}</div>
+          <div className="value">edition : {book.edition}</div>
 
-          <div className="title">nombre exemplaire</div>
-          <div className="value">{book.nb_exemplaire}</div>
+        
+          <div className="value"> nombre exemplaire : {book.nb_exemplaire}</div>
 
-          <div className="title">nbre de pages</div>
-          <div className="value">{book.nb_page}</div>
+          <div className="value">nbre de pages : {book.nb_page}</div>
+
+          <div className="value"> date_parution : {book.date_parution}</div>
+         
         </>
       )}
     </div>

@@ -2,6 +2,8 @@ import React from "react"
 // import "./App.css"
 import BooksPage from "../booksPage/BooksPage"
 import UsersPage from "../usersPage/UsersPage"
+import EmpruntsEnCoursPage from "../empruntsEnCoursPage/EmpruntsEnCoursPage"
+import EmpruntsEnRetardPage from "../empruntsEnRetardPage/EmpruntsEnRetardPage"
 
 import {
   BrowserRouter as Router,
@@ -10,7 +12,6 @@ import {
   Redirect,
   useRouteMatch
 } from "react-router-dom"
-import BookDetails from "../bookDetails/BookDetails"
 import UserDetails from "../userDetails/UserDetails"
 
 
@@ -30,16 +31,20 @@ function AdminRoutes() {
             <BooksPage />
           </Route>
 
-          <Route exact path={`${path}/books/:bookId`}>
-            <BookDetails />
-          </Route>
-
           <Route exact path={`${path}/users`}>
             <UsersPage />
           </Route>
 
           <Route exact path={`${path}/users/:userId`}>
             <UserDetails />
+          </Route>
+
+          <Route exact path={`${path}/empruntsEnCours`}>
+            <EmpruntsEnCoursPage />
+          </Route>
+
+          <Route exact path={`${path}/empruntsEnRetard`}>
+            <EmpruntsEnRetardPage />
           </Route>
 
 

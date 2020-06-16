@@ -39,7 +39,7 @@ function BooksPage() {
   const updateBook = async (id,libéllé, auteur,edition) => {
     await updateBookFromApi(id,libéllé,auteur,edition)
     const newBooks = books.map(book =>
-        book.id === id ? { libéllé, auteur,edition } : book
+        book.id === id ? {libéllé, auteur,edition} : book
     )
     setBooks(newBooks)
     console.log("update book")

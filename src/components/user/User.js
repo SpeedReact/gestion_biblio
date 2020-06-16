@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import "./User.css"
 import "antd/dist/antd.css";
 import { Card, Popover,  } from 'antd';
 import { EyeOutlined ,CheckOutlined,StopOutlined} from '@ant-design/icons';
-
+import { Link /*, Redirect*/, useRouteMatch } from "react-router-dom"
 
 export default function User({
   id,
@@ -17,7 +17,7 @@ export default function User({
 }) {
 
   var style="attente";
- 
+  let { path } = useRouteMatch()
 
   const UpdateStyle = (etat) => {
     if(etat===1){
@@ -55,9 +55,12 @@ export default function User({
                 <StopOutlined />
               </Popover>,
               <Popover content={contentAfficher}>
-                <EyeOutlined />
+                 <Link to={`${path}/${id}`}>
+                  <EyeOutlined />
+                </Link>
+               
               </Popover>,
-              
+               
             ]}
             >
               <p><strong>Nom : </strong> {nom} </p>

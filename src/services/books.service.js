@@ -5,7 +5,7 @@
   edition : "oumaima96",
   nb_exemplaire : 5,
   nb_page : 200,
-  data_parution : "2000-03-26"
+  date_parution : "2000-03-26"
 }, {
   id : 2,
   libéllé : "libéllé 2",
@@ -13,7 +13,7 @@
   edition : "edition 2",
   nb_exemplaire : 5,
   nb_page : 200,
-  data_parution : "2000-03-26"
+  date_parution : "2000-03-26"
 } ]
   
   function delay(ms) {
