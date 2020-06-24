@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
 import "./BooksPage.css"
 import BooksList from "../booksList/BooksList"
-import { fetchBooks , deleteBook as deleteBookFromApi, updateBook as updateBookFromApi} from "../../services/books.service"
+import BookForm from "../bookForm/BookForm"
+import { fetchBooks,archiverBook as archiverBookFromApi ,addBook as addBookFromApi, deleteBook as deleteBookFromApi, updateBook as updateBookFromApi} from "../../services/books.service"
 function BooksPage() {
   const [books, setBooks] = useState([])
   const [loading, setLoading] = useState(false)
-  const [searchValue, setSearchValue] = useState("")
+  const [FormIsVisible, setFormIsVisible]=useState(false)
 
   const [error, setError]=useState("")
 
@@ -21,7 +22,7 @@ function BooksPage() {
       }
       catch(e){
         setLoading(false)
-        setError("An error occurred when we tried to fetch tasks")
+        setError("An error occurred when we tried to fetch books")
       }
     }
     console.log("useEffect")
@@ -29,21 +30,41 @@ function BooksPage() {
     fetchData()
   }, [])
 
-  const addBook = (libéllé, auteur,edition,nb_exemplaire,nb_page) => {
-    setBooks(previousBooks => [
-      ...previousBooks,
-      { id: previousBooks.length + 1, libéllé,auteur,edition, nb_exemplaire: Number(nb_exemplaire),nb_page: Number(nb_page) }
-    ])
+
+
+  const addBook = async (libéllé, auteur,edition,nb_exemplaire,nb_page,date_parution) => {
+    const newBook = await addBookFromApi({
+      libéllé,
+      auteur,
+      edition,
+      nb_exemplaire,
+      nb_page,
+      date_parution,
+    })
+    setBooks((previousBooks) => [...previousBooks, { ...newBook }])
+    setFormIsVisible(!FormIsVisible)
   }
 
   const updateBook = async (id,libéllé, auteur,edition) => {
-    await updateBookFromApi(id,libéllé,auteur,edition)
-    const newBooks = books.map(book =>
-        book.id === id ? {libéllé, auteur,edition} : book
+    await updateBookFromApi(id, {
+      libéllé,
+      auteur,
+      edition,
+      nb_exemplaire: 20,
+      nb_page: 500,
+      date_parution: "2020-03-06",
+    })
+
+    const newBooks = books.map((book) =>
+      book.id === id ? { id,libéllé, auteur,edition,...book } : book
     )
+    console.log(newBooks)
+
     setBooks(newBooks)
-    console.log("update book")
+
+    
   }
+
 
 
   const deleteBook = async (id) => {
@@ -52,7 +73,20 @@ function BooksPage() {
     setBooks(newBooks)
   }
 
+  const archiverBook = async (id,archiver) => {
 
+    await archiverBookFromApi(id,archiver)
+
+    const newBooks = books.map(book =>
+        book.id === id ? { ...book ,archiver} : book
+    )
+    setBooks(newBooks)
+   
+  }
+
+  const toggleForm=()=>{
+   setFormIsVisible(!FormIsVisible)
+ }
 
   // montrer useLocation, useHistory
 // montrer nested routes : faire un lien vers chaque task 
@@ -65,24 +99,28 @@ function BooksPage() {
       
    {/*    <TaskForm addTask={memoizedCallback} /> */}
         <div className="search">
-          <input
-            type="search"
-            name="search"
-            placeholder="search book by name"
-            value={searchValue}
-            onChange={e => setSearchValue(e.target.value)}
-          />
+     
+          <div className="toggleForm">
+            <button className="toggle" onClick={toggleForm}>Toggle form</button>
+           </div>
+           { FormIsVisible &&
+                  <BookForm addBook={addBook} />
+               }
         </div>
         {loading ? (
           <div>Loading ... </div>
         ) : (
           <>
           {(
+            <div>
+              
             <BooksList
               books={books}
               deleteBook={deleteBook}
               updateBook={updateBook}
+              archiverBook={archiverBook}
             />
+            </div>
           )}
           {error.length!==0 && (<div>{error}</div>)}
           </>

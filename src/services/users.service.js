@@ -1,58 +1,46 @@
-var users = [ {
-  id : 1,
-  nom : "Admin",
-  prénom : "Admin",
-  nomutilisateur : "admin",
-  motdepasse : "123",
-  role : "admin"
-}, {
-  id : 2,
-  nom : "Ben farhat",
-  prénom : "Amani",
-  nomutilisateur : "amani96",
-  motdepasse : "1234",
-  role : "adhérent",
-  etat : 1 //  0 si pas encore ,etat 1 si accepter et 2 si banir 
-} ,{
-  id : 3,
-  nom : "Aounallah",
-  prénom : "Oumaima",
-  nomutilisateur : "oumaima96",
-  motdepasse : "123",
-  role : "adhérent",
-  etat : 0
-} ,{
-  id : 4,
-  nom : "Aounallah",
-  prénom : "jihen",
-  nomutilisateur : "jihen93",
-  motdepasse : "123",
-  role : "adhérent",
-  etat : 2
-} ,{
-  id : 5,
-  nom : "Aounallah",
-  prénom : "souhaila",
-  nomutilisateur : "souhaila12345",
-  motdepasse : "123",
-  role : "adhérent",
-  etat : 0
-} ]
+import Axios from 'axios'
+    
+  export const fetchUsers = async () => {
+    const result = await Axios.get(
+      "http://localhost:8000/users", 
+    )
+    return(result.data)
+      
+    
+  }
+
+
+  export const updateUser = async (id, etat) => {
+       await Axios.put(
+      "http://localhost:8000/users/",{id,etat}
+      
+    )
+  }
+  
+  export const fetchUserById=async(userId)=>{
+    const result = await Axios.get(
+      "http://localhost:8000/users/" + userId
+    )
+    return result.data
+ }
+
 
  
-  
-  function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms))
-  }
-  
-  export const fetchUsers = async () => {
-    await delay(500)
-   
-    return  users.filter(user => user.role==="adhérent")
-  }
+ export const Authentification = async(username,password) => {
+  const result = await Axios.put(
+    "http://localhost:8000/users/authentification" ,{username,password}
+  )
+  return result.data
 
-  export const fetchUserById=async(userId)=>{
-    await delay(500)
-    return users.find(user => user.id===userId)
-  }
+  
+}
+
+export const Signup = async (firstName,lastName,username,password) => {
+  const result = await Axios.post(
+    "http://localhost:8000/users" ,{firstName,lastName,username,password}
+  )
+  return result.data
+}
+  
+
 

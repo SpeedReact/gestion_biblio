@@ -16,11 +16,10 @@ export default function EmpruntsList({ emprunts }) {
           
             <Emprunt
               key={emprunt.id}
-              id={emprunt.id}
               dateEmprunt={emprunt.date_emprunt}
               dateRetour={emprunt.date_retour}
-              book ={emprunt.book}
-              user ={emprunt.user}
+              bookId ={emprunt.bookId}
+              userId ={emprunt.userId}
             /> 
          
         ))}

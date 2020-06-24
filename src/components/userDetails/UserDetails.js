@@ -3,7 +3,7 @@ import { fetchUserById  } from "../../services/users.service"
 import {  fetchEmpruntsById } from "../../services/emprunt.service"
 import { useParams } from "react-router-dom"
 import './UserDetails.css'
-import Emprunt from "../emprunt/Emprunt"
+import BookDetails from "../bookDetails/BookDetails"
 
 
 function UserDetails() {
@@ -29,7 +29,7 @@ function UserDetails() {
 
   return (
     <div className="user-details">
-      <div className="header">user details</div>  
+      <strong>user details</strong>  
       {loading ? (
         <div>Loading ... </div>
       ) : (
@@ -40,14 +40,19 @@ function UserDetails() {
           <div> mot de passe : {user.motdepasse}</div>
 
             
-              emprunts : 
+          <strong> emprunts : </strong>
               {emprunts.map(emprunt => (
           
                 <div key={emprunt.id} >
-                  date emprunt : {emprunt.date_emprunt }
-                  , date retour : {emprunt.date_retour}
-                  , libéllé livre : {emprunt.book.libéllé}
+                  
+                  <p>date emprunt : {emprunt.date_emprunt }</p>
+                  <p>date retour : {emprunt.date_retour} </p>
+                 
+                  <strong>Livre</strong>
+                  <BookDetails id={emprunt.bookId} />
+                  <strong>*****************************</strong>
                 </div>
+               
 
         ))}
             

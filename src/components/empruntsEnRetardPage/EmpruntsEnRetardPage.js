@@ -22,7 +22,7 @@ function EmpruntsEnCoursPage() {
       }
       catch(e){
         setLoading(false)
-        setError("An error occurred when we tried to fetch tasks")
+        setError("An error occurred when we tried to fetch emprunts")
       }
     }
     console.log("useEffect")

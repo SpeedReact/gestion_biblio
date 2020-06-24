@@ -2,7 +2,7 @@ import React from "react"
 
 import Book from "../book/Book"
 import "./BooksList.css"
-export default function BooksList({ books, deleteBook, updateBook,archiverBook }) {
+export default function BooksList({ books, empruntBook }) {
 
   // use it if you will use Redirect
   // const [taskId, setTaskId]=useState('')
@@ -20,10 +20,7 @@ export default function BooksList({ books, deleteBook, updateBook,archiverBook }
               libéllé={book.libéllé}
               auteur={book.auteur}
               edition={book.edition}
-              archiver={book.archiver}
-              deleteBook={deleteBook}
-              updateBook={updateBook}
-              archiverBook={archiverBook}
+              empruntBook={empruntBook}
             /> 
          
         ))}

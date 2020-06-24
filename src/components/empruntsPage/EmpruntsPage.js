@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
-import "./EmpruntsEnCoursPage.css"
+import "./EmpruntsPage.css"
 import EmpruntsList from "../empruntsList/EmpruntsList"
 
-import { fetchEmpruntsEnCours } from "../../services/emprunt.service"
+import { fetchEmprunts } from "../../services/emprunt.service"
 
 function EmpruntsEnCoursPage() {
   const [emprunts, setEmprunts] = useState([])
@@ -16,7 +16,7 @@ function EmpruntsEnCoursPage() {
       try{
       setLoading(true)
      
-      const result = await fetchEmpruntsEnCours()
+      const result = await fetchEmprunts()
       setEmprunts(result)
       setLoading(false)
       }

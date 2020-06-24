@@ -67,7 +67,7 @@ export default function User({
               <p> <strong>Prénom : </strong> {prénom}</p>
               <p> <strong>Nom utilisateur : </strong> {nomutilisateur}</p>
               <p> <strong>Mot de passe : </strong> {motdepasse}</p>
-              <p> <strong>Etat  : </strong> {etat}</p>
+              
           </Card>
         
      

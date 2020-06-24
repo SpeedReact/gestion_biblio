@@ -1,0 +1,57 @@
+
+.login-layout{
+    margin : 50px auto;
+    background-color: #fff;
+    width: 40%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+.login-layout-caption{
+    margin: 0px auto;
+    text-align: center;
+    font-weight: 600;
+}
+.login-layout-caption>p::after{
+     display: inline-block;
+     content: " ";
+     width: 35%;
+     height: 1px;
+     background-color: rgba(0, 0, 0, 0.1);
+}
+.login-layout-caption>p::before{
+    display: inline-block;
+    content: " ";
+    width: 35%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.login-layout-caption>button{
+    width: 40%;
+    padding: 10px;
+    border: 1px solid #FBD786;
+    border-radius: 5px;
+    background-color: #C6FFDD;
+}
+.login-layout-caption>button:hover{
+    -webkit-box-shadow: 6px -5px 5px 0px rgba(0,0,0,0.09);
+    -moz-box-shadow: 6px -5px 5px 0px rgba(0,0,0,0.09);
+    box-shadow: 6px -5px 5px 0px rgba(0,0,0,0.09);
+}
+.login-layout-caption>button:focus{
+    outline: none;
+}
+@media screen and (max-width: 1000px){
+    .login-layout{
+        width: 70%;
+    }
+
+}
+@media screen and (max-width: 450px){
+    .login-layout{
+        width: 85%;
+        margin: 50px auto;
+    }
+
+}

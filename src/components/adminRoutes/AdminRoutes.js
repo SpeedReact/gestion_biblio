@@ -1,27 +1,39 @@
 import React from "react"
-// import "./App.css"
+import { Row, Col } from 'antd';
 import BooksPage from "../booksPage/BooksPage"
 import UsersPage from "../usersPage/UsersPage"
+
+import AdminMenu from "./adminMenu/AdminMenu"
+
+import EmpruntsPage from "../empruntsPage/EmpruntsPage"
 import EmpruntsEnCoursPage from "../empruntsEnCoursPage/EmpruntsEnCoursPage"
 import EmpruntsEnRetardPage from "../empruntsEnRetardPage/EmpruntsEnRetardPage"
+import UserDetails from "../userDetails/UserDetails"
 
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
   useRouteMatch
 } from "react-router-dom"
-import UserDetails from "../userDetails/UserDetails"
+
+
 
 
 
 function AdminRoutes() {
     let { path } = useRouteMatch()
+    
   return (
-    <div className="teacher-routes">
+    <div className="admin-routes">
+      <Row>
+        <Col span={3} >
+        <AdminMenu/>
+        </Col>
+        
       {/* <Router> */}
-     
+      <Col span={21}>
+        <div className="container">
         <Switch>
           <Route exact path={`${path}/`}>
             <Redirect to={`${path}/books`} />
@@ -39,6 +51,10 @@ function AdminRoutes() {
             <UserDetails />
           </Route>
 
+          <Route exact path={`${path}/emprunts`}>
+            <EmpruntsPage />
+          </Route>
+
           <Route exact path={`${path}/empruntsEnCours`}>
             <EmpruntsEnCoursPage />
           </Route>
@@ -49,8 +65,9 @@ function AdminRoutes() {
 
 
         </Switch>
-      
-
+        </div>
+        </Col>
+        </Row>
       {/* </Router> */}
     </div>
   )

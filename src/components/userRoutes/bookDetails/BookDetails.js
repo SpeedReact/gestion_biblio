@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { fetchBookById } from "../../services/books.service"
+import { fetchBookById } from "../../../services/books.service"
 import './BookDetails.css'
 
 
@@ -33,16 +33,9 @@ function BookDetails({id}) {
 
           <div className="value">edition : {book.edition}</div>
 
-        
-          <div className="value"> nombre exemplaire : {book.nb_exemplaire}</div>
-
           <div className="value">nbre de pages : {book.nb_page}</div>
 
           <div className="value"> date_parution : {book.date_parution}</div>
-
-          <div className="value"> nbre livre en cours emprunt  : {book.nb_livre_emprunter}</div>
-
-          <div className="value"> Archiver  : {book.archiver}</div>
          
         </>
       )}

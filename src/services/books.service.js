@@ -1,52 +1,90 @@
- var books = [ {
-  id : 1,
-  libéllé : "cbfdfgg",
-  auteur : "ffvfvf fvf",
-  edition : "oumaima96",
-  nb_exemplaire : 5,
-  nb_page : 200,
-  date_parution : "2000-03-26"
-}, {
-  id : 2,
-  libéllé : "libéllé 2",
-  auteur : "auteur 2",
-  edition : "edition 2",
-  nb_exemplaire : 5,
-  nb_page : 200,
-  date_parution : "2000-03-26"
-} ]
-  
-  function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms))
-  }
-  
-
+import Axios from 'axios'
+    
   export const fetchBooks = async () => {
-    await delay(500)
-    return books
-  }
-
-  export const deleteBook = async (id) => {
-    const newBooks = books.filter(book => book.id !== id)
-     books=newBooks  
-     return books
-  }
-
-  export const updateBook = async (id,libéllé,auteur,edition) => {
-    const newBooks = books.map(book =>
-      book.id === id ? { libéllé, auteur,edition } : book
+    const result = await Axios.get(
+      "http://localhost:8000/books", 
     )
-    books=newBooks
+    return(result.data)
+      
+    
   }
 
-  export const fetchBookById=async(bookId)=>{
-    await delay(500)
-    return books.find(book => book.id===bookId)
+  export const fetchBooksUser = async () => {
+    const result = await Axios.get(
+      "http://localhost:8000/books/user", 
+    )
+    return(result.data)
+      
+    
+  }
+
+
+  
+  export const fetchBooksEmprunter = async (userId) => {
+    console.log("userId",userId)
+    const result = await Axios.get(
+      "http://localhost:8000/books/emprunter/"+userId
+    )
+    return(result.data)
+      
+    
+  }
+
+  export const addBook = async book => {
+    const result = await Axios.post(
+      "http://localhost:8000/books" ,book
+    )
+    return result.data
+  }
+
+ 
+  export const deleteBook = async (id) => {
+    const result = await Axios.delete(
+      "http://localhost:8000/books/" + id,
+    )
+     return result.data
+  }
+
+ 
+  export const updateBook = async (id, book) => {
+    await Axios.put(
+      "http://localhost:8000/books/"+id,
+      book
+    )
   }
   
-  export const fetchSearchBooks = async searchValue => {
-    await delay(500)
-    return books.filter(book => book.libéllé.includes(searchValue))
+  export const fetchBookById=async(bookId)=>{
+    const result = await Axios.get(
+      "http://localhost:8000/books/" + bookId
+    )
+   
+    return result.data
+ }
+
+
+ export const archiverBook = async (id, archiver) => {
+  await Axios.post(
+ "http://localhost:8000/books/archiver",{id,archiver}
+ 
+)
+}
+
+  
+  export const fetchSearchBooks = async (searchValue) => {
+    const result = await Axios.get(
+      "http://localhost:8000/books/search/"+searchValue
+    )
+    return(result.data)
+  
+  }
+
+
+  export const fetchSearchBooksByAuteur = async (searchValue) => {
+    const result = await Axios.get(
+      "http://localhost:8000/books/searchByAuteur/"+searchValue
+    )
+    return(result.data)
+  
   }
 
 
