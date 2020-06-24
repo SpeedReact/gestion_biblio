@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import "./BooksPage.css"
+import { Spin, Space } from 'antd';
 import BooksList from "../booksList/BooksList"
 import BookForm from "../bookForm/BookForm"
 import { fetchBooks,archiverBook as archiverBookFromApi ,addBook as addBookFromApi, deleteBook as deleteBookFromApi, updateBook as updateBookFromApi} from "../../services/books.service"
@@ -108,7 +109,11 @@ function BooksPage() {
                }
         </div>
         {loading ? (
-          <div>Loading ... </div>
+          <div className='loading'>
+            <Space size="middle">
+              <Spin size="large" />
+            </Space>
+          </div>
         ) : (
           <>
           {(

@@ -1,5 +1,26 @@
-.container{
-    background-color: #ffffff;
-    border-radius: 20px;
-    margin: 50px auto;
+.admin-menu{
+    margin-top: 20px;
+    background-color: #fff;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 50px 8px;
+}
+.admin-menu ul{
+    list-style: none;
+    padding-left: 8px;
+    
+}
+.admin-menu ul li{
+    
+    margin-bottom: 10px;
+    
+}
+.admin-menu ul li img{
+    width: 15%;
+    margin: 0 8px;
+}
+.admin-menu ul li a{
+    margin: 2px 8px;
+    color: #000;
+    
 }

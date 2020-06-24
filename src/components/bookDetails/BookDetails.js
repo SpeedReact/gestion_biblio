@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { fetchBookById } from "../../services/books.service"
 import './BookDetails.css'
+import { Spin, Space } from 'antd';
 
 
 function BookDetails({id}) {
@@ -23,7 +24,11 @@ function BookDetails({id}) {
   return (
     <div>
       {loading ? (
-        <div>Loading ... </div>
+        <div className='loading'>
+        <Space size="middle">
+          <Spin size="large" />
+        </Space>
+      </div>
       ) : (
         <>
     

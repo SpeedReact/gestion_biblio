@@ -59,6 +59,7 @@ export default function Book({
     <div>
       {!updateMode ? (
         <div>
+         
           <Card
             cover={
             <img alt="imgbook"

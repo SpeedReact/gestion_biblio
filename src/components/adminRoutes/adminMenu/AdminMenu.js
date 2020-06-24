@@ -10,30 +10,37 @@ function AdminMenu() {
     <div className="admin-menu">
     <ul>
       <li>
+        <img src={process.env.PUBLIC_URL + '/imgs/book.png'} alt="books"/>
         <NavLink to="/admin/books" activeClassName="active"
         isActive={(_, { pathname }) =>
             pathname.match("/admin/books") || pathname === "/admin"
           }
         >
-          Books List
+            Books List
         </NavLink>{" "}
       </li>
       <li>
+      <img src={process.env.PUBLIC_URL + '/imgs/user.png'} alt="books"/>
+
         <NavLink to="/admin/users" activeClassName="active">
-          users List
+          Users List
         </NavLink>
       </li>
+     
       <li>
+      <img src={process.env.PUBLIC_URL + '/imgs/register.png'} alt="books"/>
         <NavLink to="/admin/emprunts" activeClassName="active">
          Enprunts
         </NavLink>
       </li>
       <li>
+      <img src={process.env.PUBLIC_URL + '/imgs/register.png'} alt="books"/>
         <NavLink to="/admin/empruntsEnCours" activeClassName="active">
          Enprunts en cours
         </NavLink>
       </li>
       <li>
+      <img src={process.env.PUBLIC_URL + '/imgs/register.png'} alt="books"/>
         <NavLink to="/admin/empruntsEnRetard" activeClassName="active">
          Enprunts en retard
         </NavLink>

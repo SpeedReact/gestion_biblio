@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import "./UsersPage.css"
+import { Spin, Space } from 'antd';
 import UsersList from "../usersList/UsersList"
 import { fetchUsers,updateUser as updateUserFromApi } from "../../services/users.service"
 function UsersPage() {
@@ -54,7 +55,11 @@ function UsersPage() {
    {/*    <TaskForm addTask={memoizedCallback} /> */}
       
         {loading ? (
-          <div>Loading ... </div>
+         <div className='loading'>
+          <Space size="middle">
+            <Spin size="large" />
+          </Space>
+        </div>
         ) : (
           <>
           {(

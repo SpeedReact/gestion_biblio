@@ -1,5 +1,6 @@
 import React from "react"
 import { Row, Col } from 'antd';
+import './AdminRoutes.css'
 import BooksPage from "../booksPage/BooksPage"
 import UsersPage from "../usersPage/UsersPage"
 
