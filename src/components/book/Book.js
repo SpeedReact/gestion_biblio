@@ -117,14 +117,17 @@ export default function Book({
               
             ]}
             >
-        <p><strong>Libéllé : </strong> <input
+        <p><strong>Libéllé : </strong> 
+        <input
             type="text"
             name="libéllé"
+            className="edit-input"
             value={libélléToUpdate}
             onChange={e => setLibélléToUpdate(e.target.value)}
           />
           </p>
           <p><strong>Auteur : </strong><input
+            className="edit-input"
             type="text"
             value={auteurToUpdate}
             name="auteur"
@@ -133,6 +136,7 @@ export default function Book({
           </p>
 
             <p><strong>Edition : </strong> <input
+             className="edit-input"
             type="text"
             value={editionToUpdate}
             name="edition"

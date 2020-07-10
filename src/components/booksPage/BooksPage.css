@@ -1,0 +1,20 @@
+.toggleForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.toggle{
+    border: 1px solid #FBD786;
+    border-radius: 5px;
+    padding: 10px 30px;
+    background-color: #C6FFDD;
+}
+.toggle:hover{
+    -webkit-box-shadow: 6px -5px 5px 0px rgba(0,0,0,0.09);
+    -moz-box-shadow: 6px -5px 5px 0px rgba(0,0,0,0.09);
+    box-shadow: 6px -5px 5px 0px rgba(0,0,0,0.09);
+    outline: none;
+}
+.toggle:focus{
+    outline: none;
+}

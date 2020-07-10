@@ -4,12 +4,24 @@ import {  fetchEmpruntsById } from "../../services/emprunt.service"
 import { useParams } from "react-router-dom"
 import './UserDetails.css'
 import BookDetails from "../bookDetails/BookDetails"
+import { Card } from 'antd';
+
 
 
 function UserDetails() {
   const [loading, setLoading] = useState(false)
   const [user, setUser] = useState({})
   const [emprunts, setEmprunts] = useState([])
+  const tabList = [
+    {
+      key: 'tab1',
+      tab: 'tab1',
+    },
+    {
+      key: 'tab2',
+      tab: 'tab2',
+    },
+  ];
  
  
   const { userId } = useParams()
@@ -26,36 +38,54 @@ function UserDetails() {
     
     fetchData()
   }, [userId])
-
   return (
-    <div className="user-details">
-      <strong>user details</strong>  
+    <div className="user-details-area">
+      <h3>User details</h3>  
       {loading ? (
         <div>Loading ... </div>
       ) : (
         <>
-          <div >Nom :  {user.nom}</div>
-          <div>  Prénom : {user.prénom}</div>
-          <div > nom utilisateur : {user.nomutilisateur}</div>
-          <div> mot de passe : {user.motdepasse}</div>
-
-            
-          <strong> emprunts : </strong>
-              {emprunts.map(emprunt => (
-          
-                <div key={emprunt.id} >
+         <div className="row ">
+           
+           <div className="col-md-4">
+            <Card title={user.nom} bordered={false}>
+             <div >Nom :  {user.nom}</div>
+             <div>  Prénom : {user.prénom}</div>
+             <div > nom utilisateur : {user.nomutilisateur}</div>
+             <div> mot de passe : {user.motdepasse}</div>
+             </Card>
+             
+           </div>
+           <div className="col-md-8 ">
+           <h3> Emprunts : </h3>
+            <div className="row">
+            {emprunts.map(emprunt => (
+              <div className="col-md-6">
+                 <Card title="Emprunt" >
+                 <div key={emprunt.id} >
                   
                   <p>date emprunt : {emprunt.date_emprunt }</p>
                   <p>date retour : {emprunt.date_retour} </p>
                  
                   <strong>Livre</strong>
                   <BookDetails id={emprunt.bookId} />
-                  <strong>*****************************</strong>
                 </div>
-               
+                 </Card>
+                 
 
-        ))}
+              </div>
+                 ))}
+            </div>
+             
+          
+               
             
+            
+           </div>
+         </div>
+
+            
+         
         </>
       )}
     </div>

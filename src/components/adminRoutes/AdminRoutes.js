@@ -26,14 +26,16 @@ function AdminRoutes() {
     let { path } = useRouteMatch()
     
   return (
+  <div className="pages-container">
+    <div className="container">
+      <div className="row navigation-menu">
+        <AdminMenu/>
+        </div>
     <div className="admin-routes">
       <Row>
-        <Col span={3} >
-        <AdminMenu/>
-        </Col>
         
       {/* <Router> */}
-      <Col span={21}>
+
         <div className="container">
         <Switch>
           <Route exact path={`${path}/`}>
@@ -67,9 +69,11 @@ function AdminRoutes() {
 
         </Switch>
         </div>
-        </Col>
+
         </Row>
       {/* </Router> */}
+    </div>
+    </div>
     </div>
   )
 }

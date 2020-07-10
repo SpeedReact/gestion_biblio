@@ -102,7 +102,7 @@ function BooksPage() {
         <div className="search">
      
           <div className="toggleForm">
-            <button className="toggle" onClick={toggleForm}>Toggle form</button>
+            <button className="toggle" onClick={toggleForm}>Add a book</button>
            </div>
            { FormIsVisible &&
                   <BookForm addBook={addBook} />

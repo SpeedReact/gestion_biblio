@@ -4,3 +4,102 @@
     margin: 20px auto;
     padding: 10px 10px 60px 10px;
 }
+.navbar {
+    width: 90%;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 15px 50px !important;
+    -webkit-box-shadow: 10px 10px 25px 8px rgba(0,0,0,0.05);
+    -moz-box-shadow: 10px 10px 25px 8px rgba(0,0,0,0.05);
+    box-shadow: 10px 10px 25px 8px rgba(0,0,0,0.05);
+    margin: 20px auto !important;
+}
+.navbar::before{
+    display: inline-block;
+    content: " ";
+    height: 100%;
+    width: 10px;
+    background-color: #C6FFDD;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    position : absolute;
+    left: 0;
+
+}
+@media screen and (max-width: 995px)  {
+    .navbar{
+        padding: 20px 8px;
+        width: 100%;
+    }
+
+}
+.nav-item a{
+    padding: 0 10px;
+    color: #000 ;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.nav-item:hover a{
+    color: #65C7F7 ;
+}
+.active{
+    color: #65C7F7 ;
+}
+.nav-item{
+   white-space: nowrap;
+    
+}
+.active a{
+    color: #65C7F7 !important;
+}
+.navbar svg{
+    margin-top: -3px;
+    margin-right: 8px;
+}
+
+.navbar-nav{
+    width: 99%;
+    justify-content: flex-end;
+}
+.user-interface-btn:hover >button{
+    color: #65C7F7 !important;
+}
+.search{
+    width: 70%;
+    margin: 20px auto;
+    padding: 20px ;
+    border-radius: 20px;
+    -webkit-box-shadow: 10px 6px 17px 2px rgba(0,0,0,0.15);
+    -moz-box-shadow: 10px 6px 17px 2px rgba(0,0,0,0.15);
+    box-shadow: 10px 6px 17px 2px rgba(0,0,0,0.15);
+    margin-top: 20px;
+}
+.search-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px auto;
+    text-align: center;
+
+}
+.search-box button{
+  height: 40px;
+  width: 40px;
+  /*border: 1px solid #EB7D16;*/
+  background-color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  -webkit-box-shadow: 10px 6px 17px 2px rgba(0,0,0,0.15);
+  -moz-box-shadow: 10px 6px 17px 2px rgba(0,0,0,0.15);
+  box-shadow: 10px 6px 17px 2px rgba(0,0,0,0.15);
+  border: unset;
+  
+}
+.search-box button>img{
+    width: 70%;
+}
+.admin-routes{
+    width: 99%;
+    margin: 2px auto;
+}

@@ -1,9 +1,32 @@
-.accepter{
-    background-color: green;
+.accepter::before{
+    display: block;
+    content: " ";
+    height: 5px;
+    width: 100%;
+    background-color: #28a745;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px ;
+
+
 }
-.banir {
-    background-color: red;
+.cards .ant-card {
+    border-radius: 8px !important;
 }
-.attente {
-    background-color: yellow;
+.banir::before {
+    display: block;
+    content: " ";
+    height: 5px;
+    width: 100%;
+    background-color: #dc3545;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px ;
+}
+.attente::before {
+    display: block;
+    content: " ";
+    height: 5px;
+    width: 100%;
+    background-color: #ffc107;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px ;
 }

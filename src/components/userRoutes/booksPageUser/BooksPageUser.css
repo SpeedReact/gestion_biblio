@@ -1,5 +1,5 @@
 .search{
-    width: 70%;
+    width: 8%;
     margin: 20px auto;
     padding: 20px ;
     border-radius: 20px;
@@ -31,4 +31,24 @@
 }
 .search-box button>img{
     width: 70%;
+}
+.search-box>input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    width: 81%;
+    margin: 5px;
+}
+.search-box>input:focus{
+    outline: none;
+    border-bottom: 1px solid #FBD786;
+
+}
+.search-box>input:hover{
+    outline: none;
+    border-bottom: 1px solid #FBD786;
+
+}
+.books-page{
+    width: 99%;
 }

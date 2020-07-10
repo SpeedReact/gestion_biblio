@@ -1,0 +1,10 @@
+.user-details-area{
+    width: 85%;
+    padding: 25px;
+    background-color: #fff;
+    -webkit-box-shadow: 10px 10px 25px 8px rgba(0,0,0,0.05);
+    -moz-box-shadow: 10px 10px 25px 8px rgba(0,0,0,0.05);
+    box-shadow: 10px 10px 25px 8px rgba(0,0,0,0.05);
+    border-radius: 18px;
+    margin: 8px auto !important;
+}

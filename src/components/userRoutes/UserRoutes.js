@@ -3,6 +3,7 @@ import { Row, Col } from 'antd';
 import BooksPageUser from "./booksPageUser/BooksPageUser"
 import BooksEmprunterPage from "./booksEmprunterPage/BooksEmprunterPage"
 import UserMenu from "./userMenu/UserMenu"
+import "../adminRoutes/AdminRoutes.css"
 
 
 import {
@@ -19,12 +20,15 @@ function UserRoutes() {
   let { path } = useRouteMatch()
   
   return (
-    <div>
-      <Row>
-      <Col span={3} >
+    <div className="pages-container">
+    <div className="container">
+      <div className="row navigation-menu">
         <UserMenu/>
-      </Col>
-     <Col span={21}>
+        </div>
+    <div className="admin-routes">
+    
+      <Row>
+     
      <Switch>
           <Route exact path={`${path}/`}>
             <Redirect to={`${path}/accueil`} />
@@ -41,12 +45,12 @@ function UserRoutes() {
 
         </Switch>
         
-     </Col>
+   
         
       </Row>
     
-    
-       
+       </div>
+      </div>
     </div>
   )
 }

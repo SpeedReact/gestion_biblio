@@ -1,3 +1,14 @@
 p {
     color:black !important
 }
+.edit-input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    width: 81%;
+    margin: 16px 8px;
+}
+.edit-input:hover,.edit-input:focus{
+    outline: none;
+    border-bottom: 1px solid #FBD786;
+}
