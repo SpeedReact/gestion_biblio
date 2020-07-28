@@ -19,21 +19,21 @@ describe("test login", () => {
     const { debug, getByLabelText, getByTestId, getByText } = render(
       <Login/>
     )
-    const username = getByLabelText(/_usernme/i)
+    const username = getByLabelText(/_username/i)
     expect(username).toBeTruthy()
     expect(username).toHaveAttribute("type", "text")
 
     const password = getByLabelText(/_password/i)
     expect(password).toBeTruthy()
-    expect(password).toHaveAttribute("type", "text")
+    expect(password).toHaveAttribute("type", "password")
     
     expect(getByTestId("submit")).toBeTruthy()
-    expect(getByText(/submit/i)).toBeTruthy()
+    expect(getByText(/connect/i)).toBeTruthy()
 
    })
   test("should fire events", async () => {
     const promise=Promise.resolve()
-    const mockAddTask = jest.fn(()=>promise)
+    //const mockAddTask = jest.fn(()=>promise)
     const { debug, getByLabelText, getByTestId } = render(
       <Login />
     )

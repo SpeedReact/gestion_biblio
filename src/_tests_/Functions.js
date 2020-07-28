@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { fetchBooks,archiverBook as archiverBookFromApi ,addBook as addBookFromApi, deleteBook as deleteBookFromApi, updateBook as updateBookFromApi} from "../services/books.service"
-const [books, setBooks] = useState([])
 
 
 module.exports={
-   AllBooks =  async () => {
+   AllBooks () {
           try{
-          const result = await fetchBooks()
+          const result = fetchBooks()
           return result
           }
           catch(e){
@@ -14,8 +13,8 @@ module.exports={
           }
         }    
    ,
-     addBook = async (libéllé, auteur,edition,nb_exemplaire,nb_page,date_parution) => {
-        const newBook = await addBookFromApi({
+     addBook (libéllé, auteur,edition,nb_exemplaire,nb_page,date_parution) {
+        const newBook = addBookFromApi({
           libéllé,
           auteur,
           edition,

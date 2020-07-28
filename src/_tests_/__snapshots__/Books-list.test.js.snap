@@ -179,7 +179,7 @@ Object {
                     libéllé : 
                   </strong>
                    
-                  lib 22
+                  lib1
                    
                 </p>
                 <p>
@@ -188,7 +188,7 @@ Object {
                     Auteur : 
                   </strong>
                    
-                  auteur
+                  auteur1
                 </p>
                 <p>
                    
@@ -196,7 +196,7 @@ Object {
                     Edition : 
                   </strong>
                    
-                  edition
+                  edition1
                 </p>
                 <p>
                    
@@ -486,7 +486,7 @@ Object {
                   libéllé : 
                 </strong>
                  
-                lib 22
+                lib1
                  
               </p>
               <p>
@@ -495,7 +495,7 @@ Object {
                   Auteur : 
                 </strong>
                  
-                auteur
+                auteur1
               </p>
               <p>
                  
@@ -503,7 +503,7 @@ Object {
                   Edition : 
                 </strong>
                  
-                edition
+                edition1
               </p>
               <p>
                  

@@ -170,7 +170,7 @@ function Login() {
                </div>
                <div className="input-form row">
                    <div className="col-md-12 login-btn">
-                     <button type="submit" onClick={Auth} data-testid="submit">login</button>
+                     <button type="submit" onClick={Auth} data-testid="submit">connect</button>
                    </div> 
                </div>
             </div>
