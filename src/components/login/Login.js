@@ -151,7 +151,9 @@ function Login() {
                       <input type="text" name="_username" placeholder="→" 
                       value={username} 
                       ref={inputUserName}
-                      onChange={handleUsername} required/> 
+                      onChange={handleUsername}
+                       required
+                       aria-label="_username"/> 
                       <p className="error">{errorMsgUsername}</p>
                    </div> 
                </div>
@@ -161,13 +163,14 @@ function Login() {
                       <input type="password"  name="_password" placeholder="→" 
                       value={password} 
                       ref={inputPassword}
-                      onChange={handlePassword} required/> 
+                      onChange={handlePassword} required
+                      aria-label="_password"/> 
                       <p className="error">{errorMsgPassword}</p>
                    </div> 
                </div>
                <div className="input-form row">
                    <div className="col-md-12 login-btn">
-                     <button type="submit" onClick={Auth}>login</button>
+                     <button type="submit" onClick={Auth} data-testid="submit">login</button>
                    </div> 
                </div>
             </div>
