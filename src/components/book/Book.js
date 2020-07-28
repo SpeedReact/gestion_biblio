@@ -72,7 +72,7 @@ export default function Book({
               <Popconfirm  title="Voulez-vous vraiment supprimer ce livre?" okText="Oui" cancelText="Non" 
               onConfirm={() => deleteBook(id)}
               >
-                  <DeleteOutlined data-testid="deleteBook"/>
+              <DeleteOutlined data-testid="deleteBook"/>
               </Popconfirm>
             ]}
             >

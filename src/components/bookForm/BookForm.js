@@ -20,6 +20,7 @@ function BookForm({ addBook }) {
     <div className="task-form row ">
       <div className="col-md-6">
       <input
+       aria-label="libéllé"
         type="text"
         name="libéllé"
         value={libéllé}
@@ -28,6 +29,7 @@ function BookForm({ addBook }) {
       </div>
       <div className="col-md-6">   
       <input
+      aria-label="auteur"
         type="text"
         value={auteur}
         name="auteur"
@@ -37,6 +39,7 @@ function BookForm({ addBook }) {
       <div className="col-md-6">
       <input
         type="text"
+        aria-label="edition"
         value={edition}
         name="edition"
         onChange={e => setEdition(e.target.value)}
@@ -45,13 +48,18 @@ function BookForm({ addBook }) {
       <div className="col-md-6">
       <input
         type="number"
+        aria-label="nb_exemplaire"
         value={nb_exemplaire}
         name="nb_exemplaire"
         onChange={e => setNb_exemplaire(e.target.value)}
       />
+      <div data-testid="error-nb_exemplaire" className="error">
+           
+        </div>
       </div>
       <div className="col-md-6">
       <input
+       aria-label="nb_page"
         type="number"
         value={nb_page}
         name="nb_page"
@@ -60,6 +68,7 @@ function BookForm({ addBook }) {
       </div>
       <div className="col-md-6">
       <input
+       aria-label="date_parution"
         type="date"
         value={date_parution}
         name="date_parution"
@@ -67,7 +76,7 @@ function BookForm({ addBook }) {
       />
       </div>
       <div className="col-md-12 submit">
-      <button className="button" onClick={handleAddBook}>
+      <button data-testid="submit" className="button" onClick={handleAddBook}>
         Add a book
       </button>
       </div>
