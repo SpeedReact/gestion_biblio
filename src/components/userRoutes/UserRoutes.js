@@ -1,5 +1,5 @@
 import React from "react"
-import { Row, Col } from 'antd';
+import { Row } from 'antd';
 import BooksPageUser from "./booksPageUser/BooksPageUser"
 import BooksEmprunterPage from "./booksEmprunterPage/BooksEmprunterPage"
 import UserMenu from "./userMenu/UserMenu"

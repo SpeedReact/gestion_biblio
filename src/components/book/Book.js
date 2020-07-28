@@ -69,10 +69,10 @@ export default function Book({
             actions={[
               <EyeOutlined onClick={showModal} />,
               <EditOutlined onClick={()=>setUpdateMode(true)} />,
-              <Popconfirm title="Voulez-vous vraiment supprimer ce livre?" okText="Oui" cancelText="Non" 
+              <Popconfirm  title="Voulez-vous vraiment supprimer ce livre?" okText="Oui" cancelText="Non" 
               onConfirm={() => deleteBook(id)}
               >
-                  <DeleteOutlined />
+                  <DeleteOutlined data-testid="deleteBook"/>
               </Popconfirm>
             ]}
             >

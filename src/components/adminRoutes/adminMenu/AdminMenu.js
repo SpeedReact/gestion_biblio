@@ -24,33 +24,33 @@ function AdminMenu() {
                pathname.match("/admin/books") || pathname === "/admin"
                 }
                 >
-                 Books List
+                 Livres
                </NavLink>{" "}
             </>
           </li>
           <li className="nav-item">
             <FaUsers />
             <NavLink to="/admin/users" activeClassName="active">
-               Users List
+               utilisateurs
               </NavLink>
           </li>
           <li className="nav-item">
             <BsBookmarkCheck/>
              <NavLink to="/admin/emprunts" activeClassName="active">
-                 Enprunts
+                 Emprunts
                </NavLink>
           </li>
           
           <li className="nav-item">
             <BsBookmarkPlus/>
               <NavLink to="/admin/empruntsEnCours" activeClassName="active">
-               Enprunts en cours
+               Emprunts en cours
                </NavLink>
            </li>
           <li className="nav-item">
              <BsBookmarkDash/>
                  <NavLink to="/admin/empruntsEnRetard" activeClassName="active">
-                   Enprunts en retard
+                   Emprunts en retard
                  </NavLink>
            </li>
           </ul>

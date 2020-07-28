@@ -12,16 +12,7 @@ function UserDetails() {
   const [loading, setLoading] = useState(false)
   const [user, setUser] = useState({})
   const [emprunts, setEmprunts] = useState([])
-  const tabList = [
-    {
-      key: 'tab1',
-      tab: 'tab1',
-    },
-    {
-      key: 'tab2',
-      tab: 'tab2',
-    },
-  ];
+
  
  
   const { userId } = useParams()

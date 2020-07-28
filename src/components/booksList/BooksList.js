@@ -4,13 +4,11 @@ import Book from "../book/Book"
 import "./BooksList.css"
 export default function BooksList({ books, deleteBook, updateBook,archiverBook }) {
 
-  // use it if you will use Redirect
-  // const [taskId, setTaskId]=useState('')
-
+  
  
   return (
     <div className="cards">
-      {/* {taskId!=="" && <Redirect to={`/tasks/${taskId}`} />} */}
+      
     
         {books.map(book => (
           
